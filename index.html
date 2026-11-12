@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101827">
+<title>FAH LINK LAB</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f3f5f9;
+  color:#172033;
+}
+header{
+  background:#101827;
+  color:white;
+  padding:22px 18px;
+}
+.brand{font-size:23px;font-weight:800;letter-spacing:1px}
+.subtitle{font-size:11px;color:#a9bad0;margin-top:5px}
+main{padding:18px;max-width:900px;margin:auto}
+.welcome{margin-bottom:20px}
+.welcome h2{margin-bottom:5px}
+.muted{color:#788397;font-size:13px}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+.card{
+  background:white;
+  border-radius:14px;
+  padding:17px;
+  box-shadow:0 3px 12px #1720330a;
+}
+.card small{color:#778397}
+.number{font-size:27px;font-weight:bold;margin:12px 0 4px}
+.menu{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin-top:20px;
+}
+.menu button{
+  border:1px solid #e3e8f0;
+  background:white;
+  border-radius:12px;
+  padding:17px 10px;
+  font-size:14px;
+  font-weight:bold;
+  color:#263750;
+}
+.menu button:active{background:#eaf1fb}
+.panel{
+  background:white;
+  border-radius:14px;
+  padding:17px;
+  margin-top:20px;
+}
+.status{
+  display:inline-block;
+  padding:5px 10px;
+  border-radius:20px;
+  background:#fff3d7;
+  color:#9b6a00;
+  font-size:11px;
+}
+footer{
+  text-align:center;
+  color:#98a1b1;
+  padding:30px 10px;
+  font-size:11px;
+}
+@media(min-width:650px){
+ main{padding:30px}
+ .grid{grid-template-columns:repeat(4,1fr)}
+ .menu{grid-template-columns:repeat(4,1fr)}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">FAH LINK LAB</div>
+  <div class="subtitle">
+    FACEBOOK PROMOTION MANAGEMENT SYSTEM
+  </div>
+</header>
+
+<main>
+  <section class="welcome">
+    <h2>Dashboard</h2>
+    <div class="muted">ยินดีต้อนรับสู่ศูนย์จัดการงานโปรโมต</div>
+  </section>
+
+  <section class="grid">
+    <div class="card">
+      <small>ลิงก์ทั้งหมด</small>
+      <div class="number">0</div>
+      <small>LINKS</small>
+    </div>
+    <div class="card">
+      <small>ร้านค้าที่ดูแล</small>
+      <div class="number">0</div>
+      <small>SHOPS</small>
+    </div>
+    <div class="card">
+      <small>โพสต์ทั้งหมด</small>
+      <div class="number">0</div>
+      <small>POSTS</small>
+    </div>
+    <div class="card">
+      <small>จำนวนคลิก</small>
+      <div class="number">0</div>
+      <small>CLICKS</small>
+    </div>
+  </section>
+
+  <section class="menu">
+    <button onclick="showPage('links')">🔗 จัดการลิงก์</button>
+    <button onclick="showPage('shops')">🏪 จัดการร้านค้า</button>
+    <button onclick="showPage('groups')">👥 จัดการกลุ่ม</button>
+    <button onclick="showPage('posts')">📋 ติดตามโพสต์</button>
+  </section>
+
+  <section class="panel" id="content">
+    <h3>ภาพรวมระบบ</h3>
+    <p class="muted">
+      เริ่มต้นจัดการลิงก์ ร้านค้า และงานโปรโมต
+      ได้จากเมนูด้านบน
+    </p>
+    <span class="status">SYSTEM INITIALIZING</span>
+  </section>
+</main>
+
+<footer>
+  FAH LINK LAB © 2026
+  <br>Developed for Promotion Management
+</footer>
+
+<script>
+function showPage(page){
+  const content=document.getElementById("content");
+
+  const pages={
+    links:"<h3>🔗 Link Manager</h3><p>ระบบจัดการลิงก์จะเปิดใช้งานในขั้นตอนถัดไป</p>",
+    shops:"<h3>🏪 Shop Manager</h3><p>ระบบจัดการร้านค้าจะเปิดใช้งานในขั้นตอนถัดไป</p>",
+    groups:"<h3>👥 Group Manager</h3><p>ระบบจัดการกลุ่มจะเปิดใช้งานในขั้นตอนถัดไป</p>",
+    posts:"<h3>📋 Post Tracker</h3><p>ระบบติดตามโพสต์จะเปิดใช้งานในขั้นตอนถัดไป</p>"
+  };
+
+  content.innerHTML=pages[page] || "Dashboard";
+}
+</script>
+
+</body>
+</html>
